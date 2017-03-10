@@ -84,13 +84,3 @@ class dp800():
         self.ch(mych)
         command = ':CURR:PROT:STAT OFF'
         self.write(command)
-
-COM = 'COM14'
-
-x = dp800(COM)
-x.i_protect(1, 0.5)
-x.v_protect(1, 5)
-
-x.i(1, 0.1)
-x.v(1, 2.5)
-x.output(1, False)
