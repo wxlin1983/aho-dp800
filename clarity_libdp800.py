@@ -8,6 +8,8 @@ class dp800():
         self.port = port
         self.connecting = False
         self.ser = []
+        self.ch_selected = 1
+        self.ch(1)
 
     def connect(self):
 
@@ -47,8 +49,10 @@ class dp800():
 
     def ch(self, mych):
 
-        command = ':INST ' + self.getch(mych)
-        self.write(command)
+        if self.ch_selected != mych:
+            command = ':INST ' + self.getch(mych)
+            self.write(command)
+            self.ch_selected = mych
 
     def output(self, ch, onoff):
 
